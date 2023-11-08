@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:novo/pages/select_language_screen.dart';
 import 'package:novo/themes.dart';
+
+import '../widgets/custom_page_route.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -97,16 +100,26 @@ class _LoginPageState extends State<LoginPage> {
                 child: TextField(
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
-                      border: InputBorder.none, // Hide the border
-                      hintText: 'OTP',
-                      hintStyle: TextStyle(color: Colors.grey.shade300)),
+                    border: InputBorder.none, // Hide the border
+                    hintText: 'OTP',
+                    hintStyle: TextStyle(
+                      color: Colors.grey.shade300,
+                    ),
+                  ),
                 ),
               ),
             ),
             const SizedBox(height: 15),
             ElevatedButton(
-              onPressed: () {},
-              child:  Text(
+              onPressed: () {
+                Navigator.of(context).push(
+                  CustomPageRoute(
+                    child: const SelectLanguagePage(),
+                    direction: AxisDirection.left,
+                  ),
+                );
+              },
+              child: Text(
                 'Send OTP',
                 style: kStyleTextW500CW.copyWith(fontSize: 20),
               ),
