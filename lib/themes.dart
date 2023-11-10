@@ -4,12 +4,16 @@ import 'package:flutter/material.dart';
 const kColorPrimary = Color(0xff190482);
 const kColorBackground = Color(0xffF1EFEF);
 const kColorWhite = Color(0xffffffff);
+const kColorRed = Colors.red;
 const kColorGreen = Colors.green;
+const kColorGrey = Colors.grey;
+const kColorYellow = Colors.yellow;
 
 /*--------------------------------------- Styles ----------------------------------------*/
 const kStyleTextW700CW = TextStyle(color: kColorWhite, fontWeight: FontWeight.w700);
 const kStyleTextW700CP = TextStyle(color: kColorPrimary, fontWeight: FontWeight.w700);
 const kStyleTextW500CG = TextStyle(color: kColorGreen, fontWeight: FontWeight.w500);
+const kStyleTextW500CGR = TextStyle(color: kColorGrey, fontWeight: FontWeight.w500);
 const kStyleTextW500CW = TextStyle(color: kColorWhite, fontWeight: FontWeight.w500);
 
 ThemeData lightTheme = ThemeData(
