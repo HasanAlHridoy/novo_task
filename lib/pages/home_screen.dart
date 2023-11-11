@@ -2,9 +2,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:novo/pages/crop_doctor_screen/crop_doctor_screen.dart';
 import 'package:novo/pages/my_crops_screens/my_crops.dart';
+import 'package:novo/pages/sellers_screen/sellers_screen.dart';
 import 'package:novo/widgets/drawer.dart';
 
 import '../themes.dart';
+import '../widgets/custom_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -165,7 +167,12 @@ class _HomePageState extends State<HomePage> {
                               iconColor: Colors.brown,
                               name: 'Sellers',
                               style: kStyleTextW500CW,
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const SellersScreen()),
+                                );
+                              },
                             ),
                           ),
                         ],
@@ -257,55 +264,6 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  final Color iconColor;
-  final Color color;
-  final String name;
-  final IconData icon;
-  final TextStyle? style;
-  final Function() onTap;
-
-  const CustomButton({
-    super.key,
-    required this.color,
-    required this.iconColor,
-    required this.name,
-    required this.icon,
-    this.style,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Card(
-        elevation: 10,
-        color: color,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 25.0),
-          child: Column(
-            children: [
-              Icon(
-                icon,
-                size: 100,
-                color: iconColor,
-              ),
-              const SizedBox(
-                height: 6,
-              ),
-              Text(
-                name,
-                style: style?.copyWith(fontSize: 20),
-              )
-            ],
-          ),
         ),
       ),
     );

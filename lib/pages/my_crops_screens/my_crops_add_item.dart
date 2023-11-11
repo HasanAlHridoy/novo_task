@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:novo/pages/my_crops_screens/crops_popup.dart';
 
 import '../../themes.dart';
+import '../../widgets/custom_button.dart';
 
 class CropAddItem extends StatefulWidget {
   const CropAddItem({Key? key}) : super(key: key);
@@ -51,6 +52,7 @@ class _CropAddItemState extends State<CropAddItem> {
               ],
             ),
           ),
+          const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Row(
@@ -67,7 +69,7 @@ class _CropAddItemState extends State<CropAddItem> {
                     },
                   ),
                 ),
-                const SizedBox(width: 15),
+                const SizedBox(width: 10),
                 Expanded(
                   child: CustomButton(
                     icon: Icons.rice_bowl,
@@ -82,56 +84,6 @@ class _CropAddItemState extends State<CropAddItem> {
             ),
           ),
         ],
-      ),
-
-    );
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  final Color iconColor;
-  final Color color;
-  final String name;
-  final IconData icon;
-  final TextStyle? style;
-  final Function() onTap;
-
-  const CustomButton({
-    super.key,
-    required this.color,
-    required this.iconColor,
-    required this.name,
-    required this.icon,
-    this.style,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Card(
-        elevation: 10,
-        color: color,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 25.0),
-          child: Column(
-            children: [
-              Icon(
-                icon,
-                size: 100,
-                color: iconColor,
-              ),
-              const SizedBox(
-                height: 6,
-              ),
-              Text(
-                name,
-                style: style?.copyWith(fontSize: 20),
-              )
-            ],
-          ),
-        ),
       ),
     );
   }

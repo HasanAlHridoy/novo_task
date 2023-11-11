@@ -13,6 +13,7 @@ const kColorYellow = Colors.yellow;
 const kStyleTextW700CW = TextStyle(color: kColorWhite, fontWeight: FontWeight.w700);
 const kStyleTextW700CP = TextStyle(color: kColorPrimary, fontWeight: FontWeight.w700);
 const kStyleTextW500CG = TextStyle(color: kColorGreen, fontWeight: FontWeight.w500);
+const kStyleTextW500CP = TextStyle(color: kColorPrimary, fontWeight: FontWeight.w500);
 const kStyleTextW500CGR = TextStyle(color: kColorGrey, fontWeight: FontWeight.w500);
 const kStyleTextW500CW = TextStyle(color: kColorWhite, fontWeight: FontWeight.w500);
 

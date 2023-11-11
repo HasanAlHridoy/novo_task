@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:novo/pages/crop_doctor_screen/crop_doctor_solution_screen.dart';
 import 'package:novo/themes.dart';
 
 class CropDoctorScreen extends StatefulWidget {
@@ -55,50 +56,59 @@ class _CropDoctorScreenState extends State<CropDoctorScreen> {
                 child: ListView.builder(
                   itemCount: 2,
                   itemBuilder: (context, index) {
-                    return Stack(
-                      alignment: Alignment.topLeft,
-                      children: [
-                        Card(
-                          surfaceTintColor: kColorWhite,
-                          child: Padding(
-                            padding: const EdgeInsets.all(14.0),
-                            child: Row(
-                              children: [
-                                const Icon(
-                                  Icons.rice_bowl_rounded,
-                                  size: 75,
-                                ),
-                                const SizedBox(width: 10),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Sugar Cane',
-                                      style: kStyleTextW500CG.copyWith(fontSize: 18, color: Colors.black),
+                    return InkWell(
+                      highlightColor: Colors.transparent,
+                      splashColor: Colors.transparent,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const CropDoctorSolutionScreen()),
+                        );
+                      },
+                      child: Stack(
+                        alignment: Alignment.topLeft,
+                        children: [
+                          Card(
+                            surfaceTintColor: kColorWhite,
+                            child: Padding(
+                              padding: const EdgeInsets.all(14.0),
+                              child: Row(
+                                children: [
+                                  const Expanded(
+                                    flex: 3,
+                                    child: Icon(
+                                      Icons.image,
+                                      size: 75,
                                     ),
-                                    Text(
-                                      '12/10/2023',
-                                      style: kStyleTextW500CGR.copyWith(fontSize: 16),
+                                  ),
+                                  const SizedBox(width: 10),
+                                  Expanded(
+                                    flex: 7,
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Sugar Cane',
+                                          style: kStyleTextW500CP.copyWith(fontSize: 18),
+                                        ),
+                                        Text(
+                                          'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+                                          style: kStyleTextW500CGR.copyWith(fontSize: 16),
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      '3 Acre',
-                                      style: kStyleTextW500CGR.copyWith(fontSize: 14),
-                                    ),
-                                  ],
-                                )
-                              ],
+                                  )
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
+                          const Icon(
                             Icons.lightbulb_circle,
                             color: kColorYellow,
-                            size: 40,
+                            size: 50,
                           ),
-                        )
-                      ],
+                        ],
+                      ),
                     );
                   },
                 ),
