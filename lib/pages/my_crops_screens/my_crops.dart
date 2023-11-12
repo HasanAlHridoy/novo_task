@@ -30,7 +30,7 @@ class _MyCropsState extends State<MyCrops> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'NOVO',
+                    'HarvestHub Agro',
                     style: kStyleTextW700CW.copyWith(fontSize: 48),
                   ),
                   const SizedBox(height: 6),

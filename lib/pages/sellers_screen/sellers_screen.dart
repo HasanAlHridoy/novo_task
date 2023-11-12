@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:novo/pages/sellers_screen/sellers_top_item_screen.dart';
 
 import '../../themes.dart';
 import '../../widgets/custom_button.dart';
@@ -33,7 +34,7 @@ class _SellersScreenState extends State<SellersScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'NOVO',
+                        'HarvestHub Agro',
                         style: kStyleTextW700CW.copyWith(fontSize: 48),
                       ),
                       const SizedBox(height: 6),
@@ -77,10 +78,10 @@ class _SellersScreenState extends State<SellersScreen> {
                                   name: 'Farm Machinery',
                                   style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                                   onTap: () {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(builder: (context) => const CropDoctorScreen()),
-                                    // );
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const TopItemScreen()),
+                                    );
                                   },
                                 ),
                               ),

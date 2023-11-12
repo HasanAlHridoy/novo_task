@@ -33,7 +33,7 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'NOVO',
+                            'HarvestHub Agro',
                             style: kStyleTextW700CP.copyWith(fontSize: 48),
                           ),
                           const SizedBox(height: 12),

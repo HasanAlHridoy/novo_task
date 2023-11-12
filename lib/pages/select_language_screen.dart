@@ -24,7 +24,7 @@ class _SelectLanguagePageState extends State<SelectLanguagePage> {
               height: 50,
             ),
             Text(
-              'NOVO',
+              'HarvestHub Agro',
               style: kStyleTextW700CP.copyWith(fontSize: 48),
             ),
             const SizedBox(height: 12),

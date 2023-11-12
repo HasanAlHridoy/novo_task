@@ -31,7 +31,7 @@ class _CropAddItemState extends State<CropAddItem> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'NOVO',
+                  'HarvestHub Agro',
                   style: kStyleTextW700CW.copyWith(fontSize: 48),
                 ),
                 const SizedBox(height: 6),

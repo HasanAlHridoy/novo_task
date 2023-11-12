@@ -24,7 +24,7 @@ ThemeData lightTheme = ThemeData(
   textTheme: const TextTheme(),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      minimumSize: Size(double.infinity, 50),
+      minimumSize: const Size(double.infinity, 50),
       backgroundColor: kColorPrimary,
       foregroundColor: kColorWhite,
       // padding: const EdgeInsets.symmetric(vertical: 8),

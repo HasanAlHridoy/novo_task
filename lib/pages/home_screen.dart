@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     children: [
                       Text(
-                        'NOVO',
+                        'HarvestHub Agro',
                         style: kStyleTextW700CW.copyWith(fontSize: 48),
                       ),
                       const SizedBox(height: 12),
