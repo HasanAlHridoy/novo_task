@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:novo/pages/contact_screen/contact_screen_popup.dart';
 import 'package:novo/pages/crop_doctor_screen/crop_doctor_screen.dart';
+import 'package:novo/pages/khata_book_screen/khata_book_screen.dart';
 import 'package:novo/pages/my_crops_screens/my_crops.dart';
 import 'package:novo/pages/sellers_screen/sellers_screen.dart';
 import 'package:novo/widgets/drawer.dart';
@@ -31,11 +33,6 @@ class _HomePageState extends State<HomePage> {
     double sh = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
-        // appBar: AppBar(
-        //   backgroundColor: kColorPrimary,
-        //   iconTheme: const IconThemeData(color: kColorWhite),
-        // ),
-        // drawer: const AppDrawer(),
         body: ListView(
           children: [
             Column(
@@ -187,7 +184,12 @@ class _HomePageState extends State<HomePage> {
                               iconColor: Colors.purple,
                               name: 'Khata Book',
                               style: kStyleTextW500CW,
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const KhataBookScreen()),
+                                );
+                              },
                             ),
                           ),
                           const SizedBox(
@@ -226,38 +228,14 @@ class _HomePageState extends State<HomePage> {
                               iconColor: Colors.black54,
                               name: 'Contact Us',
                               style: kStyleTextW500CW,
-                              onTap: () {},
+                              onTap: () {
+                                showDialog(context: context, builder: (context) => const ContactScreenPopUp());
+                              },
                             ),
                           ),
                         ],
                       ),
                       const SizedBox(height: 15),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: CustomButton(
-                              icon: Icons.door_back_door_outlined,
-                              color: Colors.yellow.shade300,
-                              iconColor: Colors.yellow.shade900,
-                              name: 'Gate Pass',
-                              style: kStyleTextW500CW,
-                              onTap: () {},
-                            ),
-                          ),
-                          const SizedBox(width: 15),
-                          Expanded(
-                            child: CustomButton(
-                              icon: Icons.calculate_outlined,
-                              color: Colors.purple.shade200,
-                              iconColor: Colors.black54,
-                              name: 'Calculator',
-                              style: kStyleTextW500CW,
-                              onTap: () {},
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 15)
                     ],
                   ),
                 ),

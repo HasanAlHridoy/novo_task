@@ -94,10 +94,10 @@ class _SellersScreenState extends State<SellersScreen> {
                                   name: 'Fertilizers',
                                   style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                                   onTap: () {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(builder: (context) => const CropDoctorScreen()),
-                                    // );
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const TopItemScreen()),
+                                    );
                                   },
                                 ),
                               ),
@@ -113,10 +113,10 @@ class _SellersScreenState extends State<SellersScreen> {
                                   name: 'Seeds',
                                   style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                                   onTap: () {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(builder: (context) => const CropDoctorScreen()),
-                                    // );
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const TopItemScreen()),
+                                    );
                                   },
                                 ),
                               ),
@@ -129,10 +129,10 @@ class _SellersScreenState extends State<SellersScreen> {
                                   name: 'Irrigation',
                                   style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                                   onTap: () {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(builder: (context) => const CropDoctorScreen()),
-                                    // );
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const TopItemScreen()),
+                                    );
                                   },
                                 ),
                               ),
@@ -148,10 +148,10 @@ class _SellersScreenState extends State<SellersScreen> {
                                   name: 'Waste',
                                   style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                                   onTap: () {
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(builder: (context) => const CropDoctorScreen()),
-                                    // );
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const TopItemScreen()),
+                                    );
                                   },
                                 ),
                               ),
