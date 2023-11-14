@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:novo/pages/khata_book_screen/select_crop_screen.dart';
 
 import '../../themes.dart';
 
@@ -67,7 +68,12 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                       style: kStyleTextW500CGR.copyWith(color: kColorGrey.shade600, fontSize: 18),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const SelectCropScreen()),
+                        );
+                      },
                       child: Text(
                         'select',
                         style: kStyleTextW700CP.copyWith(fontSize: 16),
@@ -117,6 +123,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 15),
                     Text(
                       'Select Date :',
                       style: kStyleTextW500CGR.copyWith(color: kColorGrey.shade600, fontSize: 18),

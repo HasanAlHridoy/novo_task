@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:novo/pages/my_crops_screens/crops_popup.dart';
 
 import '../../themes.dart';
 import '../../widgets/custom_button.dart';
 
-class CropAddItem extends StatefulWidget {
-  const CropAddItem({Key? key}) : super(key: key);
+class SelectCropScreen extends StatefulWidget {
+  const SelectCropScreen({Key? key}) : super(key: key);
 
   @override
-  State<CropAddItem> createState() => _CropAddItemState();
+  State<SelectCropScreen> createState() => _SelectCropScreenState();
 }
 
-class _CropAddItemState extends State<CropAddItem> {
+class _SelectCropScreenState extends State<SelectCropScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +35,7 @@ class _CropAddItemState extends State<CropAddItem> {
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  'Add Crop',
+                  'Select Crop :',
                   style: kStyleTextW700CW.copyWith(fontSize: 20),
                 ),
               ],
@@ -54,9 +53,7 @@ class _CropAddItemState extends State<CropAddItem> {
                     iconColor: Colors.blueGrey,
                     name: 'Crop Doctor',
                     style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
-                    onTap: () {
-                      showDialog(context: context, builder: (context) => const CropsPopUp());
-                    },
+                    onTap: () {},
                   ),
                 ),
                 const SizedBox(width: 10),

@@ -1,9 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:novo/pages/bazar_rates/bazar_rate_screen.dart';
 import 'package:novo/pages/contact_screen/contact_screen_popup.dart';
 import 'package:novo/pages/crop_doctor_screen/crop_doctor_screen.dart';
 import 'package:novo/pages/khata_book_screen/khata_book_screen.dart';
 import 'package:novo/pages/my_crops_screens/my_crops.dart';
+import 'package:novo/pages/profile_screen/profile_screen.dart';
 import 'package:novo/pages/sellers_screen/sellers_screen.dart';
 import 'package:novo/widgets/drawer.dart';
 
@@ -133,7 +135,12 @@ class _HomePageState extends State<HomePage> {
                               iconColor: Colors.teal,
                               name: 'Profile',
                               style: kStyleTextW500CW,
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const ProfileScreen()),
+                                );
+                              },
                             ),
                           ),
                         ],
@@ -217,7 +224,12 @@ class _HomePageState extends State<HomePage> {
                               iconColor: Colors.red.shade900,
                               name: 'Bazar Rates',
                               style: kStyleTextW500CW,
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const BazarRatesScreen()),
+                                );
+                              },
                             ),
                           ),
                           const SizedBox(width: 15),
