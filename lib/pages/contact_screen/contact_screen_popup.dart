@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:novo/widgets/common_widgets.dart';
 
 import '../../themes.dart';
 
@@ -15,7 +16,7 @@ class _ContactScreenPopUpState extends State<ContactScreenPopUp> {
     return Stack(
       children: [
         Container(
-          color: kColorPrimary,
+          color: kColorPrimary.withOpacity(0.7),
           width: double.infinity,
           height: double.infinity,
         ),
@@ -27,7 +28,7 @@ class _ContactScreenPopUpState extends State<ContactScreenPopUp> {
             ),
           ),
           content: SizedBox(
-            height: MediaQuery.of(context).size.height / 1.60,
+            height: MediaQuery.of(context).size.height / 1.4,
             width: MediaQuery.of(context).size.width,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -65,55 +66,43 @@ class _ContactScreenPopUpState extends State<ContactScreenPopUp> {
                   style: kStyleTextW500CGR.copyWith(color: Colors.black87, fontSize: 18),
                 ),
                 const SizedBox(height: 15),
-                Row(
+                const Row(
                   children: [
                     Expanded(
                       child: Card(
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.sms,
-                            size: 100,
-                          ),
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: CommonWidgets(imgUrl: 'assets/images/sms.png'),
                         ),
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    SizedBox(width: 10),
                     Expanded(
                       child: Card(
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.phone,
-                            size: 100,
-                          ),
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: CommonWidgets(imgUrl: 'assets/images/call.png'),
                         ),
                       ),
                     ),
                   ],
                 ),
-                Row(
+                const Row(
                   children: [
                     Expanded(
                       child: Card(
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.email,
-                            size: 100,
-                          ),
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: CommonWidgets(imgUrl: 'assets/images/inbox.png'),
                         ),
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    SizedBox(width: 10),
                     Expanded(
                       child: Card(
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.perm_phone_msg_sharp,
-                            size: 100,
-                          ),
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: CommonWidgets(imgUrl: 'assets/images/wapp.png'),
                         ),
                       ),
                     ),

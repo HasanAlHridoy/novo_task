@@ -72,9 +72,8 @@ class _SellersScreenState extends State<SellersScreen> {
                             children: [
                               Expanded(
                                 child: CustomButton(
-                                  icon: Icons.directions_ferry_outlined,
+                                  imgUrl: 'assets/images/sell/machine.png',
                                   color: Colors.white,
-                                  iconColor: Colors.yellow.shade900,
                                   name: 'Farm Machinery',
                                   style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                                   onTap: () {
@@ -88,9 +87,8 @@ class _SellersScreenState extends State<SellersScreen> {
                               const SizedBox(width: 10),
                               Expanded(
                                 child: CustomButton(
-                                  icon: Icons.shopping_bag,
+                                  imgUrl: 'assets/images/sell/fertilizer.png',
                                   color: Colors.white,
-                                  iconColor: Colors.yellow.shade700,
                                   name: 'Fertilizers',
                                   style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                                   onTap: () {
@@ -107,9 +105,8 @@ class _SellersScreenState extends State<SellersScreen> {
                             children: [
                               Expanded(
                                 child: CustomButton(
-                                  icon: Icons.gamepad_rounded,
+                                  imgUrl: 'assets/images/sell/seeds.jpg',
                                   color: Colors.white,
-                                  iconColor: Colors.brown,
                                   name: 'Seeds',
                                   style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                                   onTap: () {
@@ -123,9 +120,8 @@ class _SellersScreenState extends State<SellersScreen> {
                               const SizedBox(width: 10),
                               Expanded(
                                 child: CustomButton(
-                                  icon: Icons.wb_iridescent_outlined,
+                                  imgUrl: 'assets/images/sell/irr.png',
                                   color: Colors.white,
-                                  iconColor: Colors.green.shade700,
                                   name: 'Irrigation',
                                   style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                                   onTap: () {
@@ -142,9 +138,8 @@ class _SellersScreenState extends State<SellersScreen> {
                             children: [
                               Expanded(
                                 child: CustomButton(
-                                  icon: Icons.agriculture,
+                                  imgUrl: 'assets/images/sell/waste.png',
                                   color: Colors.white,
-                                  iconColor: Colors.green.shade900,
                                   name: 'Waste',
                                   style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                                   onTap: () {

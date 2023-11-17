@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:novo/themes.dart';
@@ -10,6 +12,24 @@ class CropsPopUp extends StatefulWidget {
 }
 
 class _CropsPopUpState extends State<CropsPopUp> {
+  DateTime dateTime = DateTime.now();
+  int counter = 1;
+
+//Functions------------------
+  //Pick Date
+  pickDate() {
+    showDatePicker(
+      context: context,
+      initialDate: dateTime,
+      firstDate: DateTime(DateTime.now().year - 100),
+      lastDate: DateTime(DateTime.now().year + 10),
+    ).then((value) {
+      setState(() {
+        dateTime = value!;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -31,16 +51,20 @@ class _CropsPopUpState extends State<CropsPopUp> {
             ),
             Row(
               children: [
-                const Text(
-                  'Select',
-                  style: TextStyle(fontSize: 18),
+                Text(
+                  dateTime.toString().split(' ')[0],
+                  style: const TextStyle(fontSize: 18),
                 ),
                 IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.calendar_today,
-                      size: 25,
-                    ))
+                  onPressed: () {
+                    pickDate();
+                  },
+                  icon: const Icon(
+                    Icons.calendar_today,
+                    size: 25,
+                    color: kColorPrimary,
+                  ),
+                )
               ],
             ),
             const SizedBox(height: 10),
@@ -58,20 +82,30 @@ class _CropsPopUpState extends State<CropsPopUp> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (counter == 1) {
+                          return;
+                        }
+                        setState(() {
+                          counter--;
+                        });
+                      },
                       icon: const Icon(
                         Icons.remove,
                         color: kColorWhite,
                       ),
                     ),
-                    const Center(
+                    Center(
                       child: Text(
-                        '1',
+                        counter.toString(),
                         style: kStyleTextW500CW,
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        counter++;
+                        setState(() {});
+                      },
                       icon: const Icon(
                         Icons.add,
                         color: kColorWhite,
@@ -86,7 +120,7 @@ class _CropsPopUpState extends State<CropsPopUp> {
               child: Align(
                 alignment: Alignment.center,
                 child: Text(
-                  '3 Acre',
+                  '$counter Acre',
                   style: kStyleTextW500CG.copyWith(fontSize: 18, color: Colors.black),
                 ),
               ),

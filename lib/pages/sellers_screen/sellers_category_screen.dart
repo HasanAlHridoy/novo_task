@@ -80,9 +80,8 @@ class _MachineryAndEquipmentsState extends State<MachineryAndEquipments> {
                     itemCount: 5,
                     itemBuilder: (BuildContext context, int index) {
                       return CustomButton(
-                        icon: Icons.man,
+                        imgUrl: 'assets/images/home/my_crops.png',
                         color: Colors.white,
-                        iconColor: Colors.blueGrey,
                         name: 'Crop Doctor',
                         style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                         onTap: () {},

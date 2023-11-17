@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:novo/pages/crop_doctor_screen/crop_doctor_add_problem_pop_up.dart';
 import 'package:novo/pages/crop_doctor_screen/crop_doctor_solution_screen.dart';
 import 'package:novo/themes.dart';
 
@@ -123,10 +124,7 @@ class _CropDoctorScreenState extends State<CropDoctorScreen> {
             color: kColorWhite,
           ),
           onPressed: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => const CropAddItem()),
-            // );
+            showDialog(context: context, builder: (context) => const CropDoctorAddProblemPopUp());
           },
         ),
       ),

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "737676624196",
+    "project_id": "hervestagro-7cba1",
+    "storage_bucket": "hervestagro-7cba1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737676624196:android:5279d4014f8c688922d711",
+        "android_client_info": {
+          "package_name": "com.example.novo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPNlvTWcBRRS9TkK1LIqUsNdL6t-roaGQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

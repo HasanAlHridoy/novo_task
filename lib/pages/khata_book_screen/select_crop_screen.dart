@@ -48,9 +48,8 @@ class _SelectCropScreenState extends State<SelectCropScreen> {
               children: [
                 Expanded(
                   child: CustomButton(
-                    icon: Icons.man,
+                    imgUrl: 'assets/images/home/my_crops.png',
                     color: Colors.white,
-                    iconColor: Colors.blueGrey,
                     name: 'Crop Doctor',
                     style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                     onTap: () {},
@@ -59,9 +58,8 @@ class _SelectCropScreenState extends State<SelectCropScreen> {
                 const SizedBox(width: 10),
                 Expanded(
                   child: CustomButton(
-                    icon: Icons.rice_bowl,
+                    imgUrl: 'assets/images/home/my_crops.png',
                     color: Colors.white,
-                    iconColor: Colors.blueGrey,
                     name: 'Crop Doctor',
                     style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                     onTap: () {},

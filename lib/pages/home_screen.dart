@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                             initialPage: 0,
                             scrollDirection: Axis.horizontal,
                             autoPlay: true,
-                            height: 240,
+                            height: sh / 3.6,
                           ),
                           items: imgList
                               .map(
@@ -114,9 +114,8 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Expanded(
                             child: CustomButton(
-                              icon: Icons.ac_unit_outlined,
+                              imgUrl: 'assets/images/home/my_crops.png',
                               color: Colors.blue.shade800,
-                              iconColor: Colors.greenAccent,
                               name: 'My Crops',
                               style: kStyleTextW500CW,
                               onTap: () {
@@ -130,9 +129,8 @@ class _HomePageState extends State<HomePage> {
                           const SizedBox(width: 15),
                           Expanded(
                             child: CustomButton(
-                              icon: Icons.account_circle,
+                              imgUrl: 'assets/images/home/profile.png',
                               color: Colors.yellow.shade600,
-                              iconColor: Colors.teal,
                               name: 'Profile',
                               style: kStyleTextW500CW,
                               onTap: () {
@@ -150,9 +148,8 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Expanded(
                             child: CustomButton(
-                              icon: Icons.man,
+                              imgUrl: 'assets/images/home/doctor.png',
                               color: Colors.white,
-                              iconColor: Colors.blueGrey,
                               name: 'Crop Doctor',
                               style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                               onTap: () {
@@ -166,9 +163,8 @@ class _HomePageState extends State<HomePage> {
                           const SizedBox(width: 15),
                           Expanded(
                             child: CustomButton(
-                              icon: Icons.sell_outlined,
+                              imgUrl: 'assets/images/home/sell.png',
                               color: Colors.lightGreen,
-                              iconColor: Colors.brown,
                               name: 'Sellers',
                               style: kStyleTextW500CW,
                               onTap: () {
@@ -186,9 +182,8 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Expanded(
                             child: CustomButton(
-                              icon: Icons.book,
+                              imgUrl: 'assets/images/home/book.png',
                               color: Colors.orangeAccent,
-                              iconColor: Colors.purple,
                               name: 'Khata Book',
                               style: kStyleTextW500CW,
                               onTap: () {
@@ -204,9 +199,8 @@ class _HomePageState extends State<HomePage> {
                           ),
                           Expanded(
                             child: CustomButton(
-                              icon: Icons.monetization_on_outlined,
+                              imgUrl: 'assets/images/home/my_crops.png',
                               color: Colors.yellow.shade900,
-                              iconColor: Colors.yellow.shade400,
                               name: 'Transactions',
                               style: kStyleTextW500CW,
                               onTap: () {},
@@ -219,9 +213,8 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Expanded(
                             child: CustomButton(
-                              icon: Icons.bar_chart,
+                              imgUrl: 'assets/images/home/bazar.png',
                               color: Colors.red.shade300,
-                              iconColor: Colors.red.shade900,
                               name: 'Bazar Rates',
                               style: kStyleTextW500CW,
                               onTap: () {
@@ -235,9 +228,8 @@ class _HomePageState extends State<HomePage> {
                           const SizedBox(width: 15),
                           Expanded(
                             child: CustomButton(
-                              icon: Icons.chat,
+                              imgUrl: 'assets/images/home/conatct.png',
                               color: Colors.teal.shade200,
-                              iconColor: Colors.black54,
                               name: 'Contact Us',
                               style: kStyleTextW500CW,
                               onTap: () {

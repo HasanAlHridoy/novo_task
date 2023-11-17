@@ -59,7 +59,7 @@ class _BazarRatesScreenState extends State<BazarRatesScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Text(
+                        const Text(
                           '\$222/Q',
                           style: TextStyle(fontSize: 18),
                         ),

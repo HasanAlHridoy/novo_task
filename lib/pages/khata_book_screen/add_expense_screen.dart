@@ -135,6 +135,14 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                         style: kStyleTextW700CP.copyWith(fontSize: 16),
                       ),
                     ),
+                    const SizedBox(height: 15),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Submit',
+                        style: kStyleTextW500CW.copyWith(fontSize: 20),
+                      ),
+                    )
                   ],
                 ),
               )

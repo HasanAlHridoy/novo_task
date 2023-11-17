@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:novo/pages/my_crops_screens/crops_popup.dart';
 
@@ -12,6 +13,11 @@ class CropAddItem extends StatefulWidget {
 }
 
 class _CropAddItemState extends State<CropAddItem> {
+  //Read Data From Firebase
+  Stream<List<Map>> readData() {
+    return FirebaseFirestore.instance.collection('my_crops').snapshots().map((snapshot) => snapshot.docs.map((e) => e.data()).toList());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,37 +50,47 @@ class _CropAddItemState extends State<CropAddItem> {
           ),
           const SizedBox(height: 10),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: CustomButton(
-                    icon: Icons.man,
-                    color: Colors.white,
-                    iconColor: Colors.blueGrey,
-                    name: 'Crop Doctor',
-                    style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
-                    onTap: () {
-                      showDialog(context: context, builder: (context) => const CropsPopUp());
-                    },
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Expanded(
-                  child: CustomButton(
-                    icon: Icons.rice_bowl,
-                    color: Colors.white,
-                    iconColor: Colors.blueGrey,
-                    name: 'Crop Doctor',
-                    style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
-                    onTap: () {},
-                  ),
-                ),
-              ],
-            ),
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: SizedBox(
+                height: 200,
+                child: StreamBuilder(
+                    stream: readData(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        final data = snapshot.data;
+                        return ListView(
+                            children: data!
+                                .map((e) => ListTile(
+                                      leading: Image.network(e['imgUrl']),
+                                      title: Text(e['cropName'].toString()),
+                                    ))
+                                .toList());
+                      } else {
+                        return Center(child: CircularProgressIndicator());
+                      }
+                    }),
+              ))
         ],
       ),
     );
   }
 }
+//GridView.builder(
+//                         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+//                           crossAxisCount: 1,
+//                           mainAxisSpacing: 5.0,
+//                           crossAxisSpacing: 5.0,
+//                           childAspectRatio: 3 / 1,
+//                         ),
+//                         itemBuilder: (context, index) {
+//                           return CustomButton(
+//                             imgUrl: 'assets/images/home/my_crops.png',
+//                             color: Colors.white,
+//                             name: 'Crop Doctor',
+//                             style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
+//                             onTap: () {
+//                               showDialog(context: context, builder: (context) => const CropsPopUp());
+//                             },
+//                           );
+//                         },
+//                       );
