@@ -75,6 +75,7 @@ class _SellersScreenState extends State<SellersScreen> {
                                   imgUrl: 'assets/images/sell/machine.png',
                                   color: Colors.white,
                                   name: 'Farm Machinery',
+                                  isNetwork: false,
                                   style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                                   onTap: () {
                                     Navigator.push(
@@ -90,6 +91,7 @@ class _SellersScreenState extends State<SellersScreen> {
                                   imgUrl: 'assets/images/sell/fertilizer.png',
                                   color: Colors.white,
                                   name: 'Fertilizers',
+                                  isNetwork: false,
                                   style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                                   onTap: () {
                                     Navigator.push(
@@ -107,6 +109,7 @@ class _SellersScreenState extends State<SellersScreen> {
                                 child: CustomButton(
                                   imgUrl: 'assets/images/sell/seeds.jpg',
                                   color: Colors.white,
+                                  isNetwork: false,
                                   name: 'Seeds',
                                   style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                                   onTap: () {
@@ -123,6 +126,7 @@ class _SellersScreenState extends State<SellersScreen> {
                                   imgUrl: 'assets/images/sell/irr.png',
                                   color: Colors.white,
                                   name: 'Irrigation',
+                                  isNetwork: false,
                                   style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                                   onTap: () {
                                     Navigator.push(
@@ -141,6 +145,7 @@ class _SellersScreenState extends State<SellersScreen> {
                                   imgUrl: 'assets/images/sell/waste.png',
                                   color: Colors.white,
                                   name: 'Waste',
+                                  isNetwork: false,
                                   style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                                   onTap: () {
                                     Navigator.push(

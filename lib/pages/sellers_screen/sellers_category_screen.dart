@@ -83,6 +83,7 @@ class _MachineryAndEquipmentsState extends State<MachineryAndEquipments> {
                         imgUrl: 'assets/images/home/my_crops.png',
                         color: Colors.white,
                         name: 'Crop Doctor',
+                        isNetwork: false,
                         style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
                         onTap: () {},
                       );

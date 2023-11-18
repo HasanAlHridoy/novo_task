@@ -72,7 +72,10 @@ class _ContactScreenPopUpState extends State<ContactScreenPopUp> {
                       child: Card(
                         child: Padding(
                           padding: EdgeInsets.all(8.0),
-                          child: CommonWidgets(imgUrl: 'assets/images/sms.png'),
+                          child: CommonWidgets(
+                            imgUrl: 'assets/images/sms.png',
+                            isNetwork: false,
+                          ),
                         ),
                       ),
                     ),
@@ -81,7 +84,10 @@ class _ContactScreenPopUpState extends State<ContactScreenPopUp> {
                       child: Card(
                         child: Padding(
                           padding: EdgeInsets.all(8.0),
-                          child: CommonWidgets(imgUrl: 'assets/images/call.png'),
+                          child: CommonWidgets(
+                            imgUrl: 'assets/images/call.png',
+                            isNetwork: false,
+                          ),
                         ),
                       ),
                     ),
@@ -93,7 +99,10 @@ class _ContactScreenPopUpState extends State<ContactScreenPopUp> {
                       child: Card(
                         child: Padding(
                           padding: EdgeInsets.all(8.0),
-                          child: CommonWidgets(imgUrl: 'assets/images/inbox.png'),
+                          child: CommonWidgets(
+                            imgUrl: 'assets/images/inbox.png',
+                            isNetwork: false,
+                          ),
                         ),
                       ),
                     ),
@@ -102,7 +111,10 @@ class _ContactScreenPopUpState extends State<ContactScreenPopUp> {
                       child: Card(
                         child: Padding(
                           padding: EdgeInsets.all(8.0),
-                          child: CommonWidgets(imgUrl: 'assets/images/wapp.png'),
+                          child: CommonWidgets(
+                            imgUrl: 'assets/images/wapp.png',
+                            isNetwork: false,
+                          ),
                         ),
                       ),
                     ),

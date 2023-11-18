@@ -2,10 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:novo/pages/my_crops_screens/DeleteOrConfirm.dart';
 import 'package:novo/themes.dart';
 
 class CropsPopUp extends StatefulWidget {
-  const CropsPopUp({Key? key}) : super(key: key);
+  final String cropName;
+  final String imgUrl;
+
+  const CropsPopUp({Key? key, required this.cropName, required this.imgUrl}) : super(key: key);
 
   @override
   State<CropsPopUp> createState() => _CropsPopUpState();
@@ -29,6 +33,12 @@ class _CropsPopUpState extends State<CropsPopUp> {
       });
     });
   }
+
+  // Add Crops
+  // Future addCrops(Map<String, dynamic> map) async {
+  //   final docCrop = FirebaseFirestore.instance.collection('add_crops').doc();
+  //   await docCrop.set(map);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +136,21 @@ class _CropsPopUpState extends State<CropsPopUp> {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () async {
+                final docCrop = FirebaseFirestore.instance.collection('add_crops').doc();
+                Map<String, dynamic> crops = {
+                  "id": docCrop.id,
+                  "cropName": widget.cropName,
+                  "imgUrl": widget.imgUrl,
+                  "date": dateTime,
+                  "total": counter,
+                };
+                await docCrop.set(crops);
+                if (mounted) {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                }
+              },
               child: Text(
                 'Submit',
                 style: kStyleTextW500CW.copyWith(fontSize: 20),

@@ -8,6 +8,7 @@ class CustomButton extends StatelessWidget {
   final String imgUrl;
   final TextStyle? style;
   final Function() onTap;
+  final bool isNetwork;
 
   const CustomButton({
     super.key,
@@ -16,6 +17,7 @@ class CustomButton extends StatelessWidget {
     this.style,
     required this.onTap,
     required this.imgUrl,
+    required this.isNetwork,
   });
 
   @override
@@ -34,7 +36,7 @@ class CustomButton extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 25.0),
             child: Column(
               children: [
-                CommonWidgets(imgUrl: imgUrl),
+                CommonWidgets(imgUrl: imgUrl, isNetwork: isNetwork),
                 const SizedBox(
                   height: 6,
                 ),

@@ -118,6 +118,7 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.blue.shade800,
                               name: 'My Crops',
                               style: kStyleTextW500CW,
+                              isNetwork: false,
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -133,6 +134,7 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.yellow.shade600,
                               name: 'Profile',
                               style: kStyleTextW500CW,
+                              isNetwork: false,
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -152,6 +154,7 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.white,
                               name: 'Crop Doctor',
                               style: kStyleTextW500CW.copyWith(color: Colors.blueGrey),
+                              isNetwork: false,
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -167,6 +170,7 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.lightGreen,
                               name: 'Sellers',
                               style: kStyleTextW500CW,
+                              isNetwork: false,
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -186,6 +190,7 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.orangeAccent,
                               name: 'Khata Book',
                               style: kStyleTextW500CW,
+                              isNetwork: false,
                               onTap: () {
                                 Navigator.push(
                                   context,
@@ -201,6 +206,7 @@ class _HomePageState extends State<HomePage> {
                             child: CustomButton(
                               imgUrl: 'assets/images/home/my_crops.png',
                               color: Colors.yellow.shade900,
+                              isNetwork: false,
                               name: 'Transactions',
                               style: kStyleTextW500CW,
                               onTap: () {},
@@ -215,6 +221,7 @@ class _HomePageState extends State<HomePage> {
                             child: CustomButton(
                               imgUrl: 'assets/images/home/bazar.png',
                               color: Colors.red.shade300,
+                              isNetwork: false,
                               name: 'Bazar Rates',
                               style: kStyleTextW500CW,
                               onTap: () {
@@ -230,6 +237,7 @@ class _HomePageState extends State<HomePage> {
                             child: CustomButton(
                               imgUrl: 'assets/images/home/conatct.png',
                               color: Colors.teal.shade200,
+                              isNetwork: false,
                               name: 'Contact Us',
                               style: kStyleTextW500CW,
                               onTap: () {
