@@ -13,6 +13,10 @@ class TopItemScreen extends StatefulWidget {
 }
 
 class _TopItemScreenState extends State<TopItemScreen> {
+  String title = 'Hydromax Machine';
+  String price = '\$ 45000000';
+  String imgUrl = 'https://5.imimg.com/data5/SELLER/Default/2021/1/AD/RL/EK/57431554/500-watt-hydromax-soldering-machine-500x500.jpg';
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -69,7 +73,12 @@ class _TopItemScreenState extends State<TopItemScreen> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const ItemDescriptionScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => ItemDescriptionScreen(
+                                  title: title,
+                                  price: price,
+                                  imgUrl: imgUrl,
+                                )),
                       );
                     },
                     highlightColor: Colors.transparent,
@@ -81,10 +90,10 @@ class _TopItemScreenState extends State<TopItemScreen> {
                             Expanded(
                               child: Container(
                                   height: 200,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     image: DecorationImage(
                                       image: NetworkImage(
-                                        'https://5.imimg.com/data5/SELLER/Default/2021/1/AD/RL/EK/57431554/500-watt-hydromax-soldering-machine-500x500.jpg',
+                                        imgUrl,
                                       ),
                                       fit: BoxFit.fill,
                                     ),
@@ -96,10 +105,10 @@ class _TopItemScreenState extends State<TopItemScreen> {
                                         height: 30,
                                         color: Colors.black.withOpacity(0.7),
                                         width: double.infinity,
-                                        child: const Align(
+                                        child: Align(
                                           alignment: Alignment.center,
                                           child: Text(
-                                            'Hydromax Machine',
+                                            title,
                                             style: kStyleTextW500CW,
                                           ),
                                         ),
@@ -108,10 +117,10 @@ class _TopItemScreenState extends State<TopItemScreen> {
                                         height: 35,
                                         color: Colors.grey.shade400,
                                         width: double.infinity,
-                                        child: const Align(
+                                        child: Align(
                                           alignment: Alignment.center,
                                           child: Text(
-                                            '\$ 45000000',
+                                            price,
                                             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                                           ),
                                         ),

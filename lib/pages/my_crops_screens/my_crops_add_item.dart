@@ -57,7 +57,7 @@ class _CropAddItemState extends State<CropAddItem> {
                       padding: const EdgeInsets.symmetric(vertical: 4),
                       crossAxisCount: 2,
                       scrollDirection: Axis.vertical,
-                      childAspectRatio: 2 / 2.4,
+                      childAspectRatio: 2 / 2.5,
                       mainAxisSpacing: 10,
                       children: data!
                           .map(

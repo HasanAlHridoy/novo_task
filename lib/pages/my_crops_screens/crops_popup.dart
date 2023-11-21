@@ -18,6 +18,7 @@ class CropsPopUp extends StatefulWidget {
 class _CropsPopUpState extends State<CropsPopUp> {
   DateTime dateTime = DateTime.now();
   int counter = 1;
+  bool isLoading = false;
 
 //Functions------------------
   //Pick Date
@@ -135,27 +136,35 @@ class _CropsPopUpState extends State<CropsPopUp> {
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () async {
-                final docCrop = FirebaseFirestore.instance.collection('add_crops').doc();
-                Map<String, dynamic> crops = {
-                  "id": docCrop.id,
-                  "cropName": widget.cropName,
-                  "imgUrl": widget.imgUrl,
-                  "date": dateTime,
-                  "total": counter,
-                };
-                await docCrop.set(crops);
-                if (mounted) {
-                  Navigator.pop(context);
-                  Navigator.pop(context);
-                }
-              },
-              child: Text(
-                'Submit',
-                style: kStyleTextW500CW.copyWith(fontSize: 20),
-              ),
-            )
+            isLoading
+                ? const Center(child: CircularProgressIndicator())
+                : ElevatedButton(
+                    onPressed: () async {
+                      setState(() {
+                        isLoading = true;
+                      });
+                      final docCrop = FirebaseFirestore.instance.collection('add_crops').doc();
+                      Map<String, dynamic> crops = {
+                        "id": docCrop.id,
+                        "cropName": widget.cropName,
+                        "imgUrl": widget.imgUrl,
+                        "date": dateTime,
+                        "total": counter,
+                      };
+                      await docCrop.set(crops);
+                      if (mounted) {
+                        Navigator.pop(context);
+                        Navigator.pop(context);
+                      }
+                      setState(() {
+                        isLoading = false;
+                      });
+                    },
+                    child: Text(
+                      'Submit',
+                      style: kStyleTextW500CW.copyWith(fontSize: 20),
+                    ),
+                  )
           ],
         ),
       ),

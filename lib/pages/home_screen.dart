@@ -7,7 +7,6 @@ import 'package:novo/pages/khata_book_screen/khata_book_screen.dart';
 import 'package:novo/pages/my_crops_screens/my_crops.dart';
 import 'package:novo/pages/profile_screen/profile_screen.dart';
 import 'package:novo/pages/sellers_screen/sellers_screen.dart';
-import 'package:novo/widgets/drawer.dart';
 
 import '../themes.dart';
 import '../widgets/custom_button.dart';

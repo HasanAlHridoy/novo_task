@@ -11,6 +11,49 @@ class KhataBookScreen extends StatefulWidget {
 }
 
 class _KhataBookScreenState extends State<KhataBookScreen> {
+  int selectedYear = DateTime.now().year;
+  num totalExpense = 0;
+
+  void _showYearPickerDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Center(
+              child: Text(
+            'Select Year',
+            textAlign: TextAlign.center,
+          )),
+          content: SizedBox(
+            height: 200,
+            width: double.infinity,
+            child: ListWheelScrollView(
+              itemExtent: 50,
+              children: List.generate(100, (index) {
+                int year = DateTime.now().year + index;
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedYear = year;
+                      Navigator.pop(context);
+                    });
+                  },
+                  child: Text(
+                    year.toString(),
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: year == selectedYear ? Colors.blue : Colors.black,
+                    ),
+                  ),
+                );
+              }),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -50,11 +93,14 @@ class _KhataBookScreenState extends State<KhataBookScreen> {
                       style: kStyleTextW500CGR.copyWith(fontSize: 20, color: Colors.black87),
                     ),
                     TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          '2023',
-                          style: kStyleTextW700CP.copyWith(fontSize: 20),
-                        ))
+                      onPressed: () {
+                        _showYearPickerDialog();
+                      },
+                      child: Text(
+                        selectedYear.toString(),
+                        style: kStyleTextW700CP.copyWith(fontSize: 20),
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -62,11 +108,12 @@ class _KhataBookScreenState extends State<KhataBookScreen> {
               InkWell(
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
-                onTap: () {
-                  Navigator.push(
+                onTap: () async {
+                  totalExpense = await Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const TotalExpenseScreen()),
                   );
+                  (context as Element).reassemble(); // This triggers a rebuild of the widget tree
                 },
                 child: Container(
                   height: MediaQuery.of(context).size.height / 6,
@@ -97,7 +144,7 @@ class _KhataBookScreenState extends State<KhataBookScreen> {
                         height: 15,
                       ),
                       Text(
-                        '\$ 4442023',
+                        '\$ $totalExpense',
                         style: kStyleTextW700CP.copyWith(fontSize: 24, color: Colors.black87),
                       )
                     ],

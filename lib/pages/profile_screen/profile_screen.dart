@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../../themes.dart';
+import '../../widgets/custom_form_field.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -10,6 +12,18 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController stateController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
+  TextEditingController postcodeController = TextEditingController();
+  TextEditingController authCardController = TextEditingController();
+  TextEditingController passController = TextEditingController();
+  TextEditingController bankNameController = TextEditingController();
+  TextEditingController accController = TextEditingController();
+  TextEditingController holderController = TextEditingController();
+  TextEditingController codeController = TextEditingController();
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -54,83 +68,101 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700),
                     ),
                     const SizedBox(height: 10),
-                    const ProfileCustomFormField(label: 'Full Name'),
+                    ProfileCustomFormField(
+                      label: 'Full Name',
+                      controller: nameController,
+                    ),
                     const SizedBox(height: 10),
-                    const ProfileCustomFormField(label: 'Select State'),
+                    ProfileCustomFormField(
+                      label: 'State',
+                      controller: stateController,
+                    ),
                     const SizedBox(height: 10),
-                    const ProfileCustomFormField(label: 'City'),
+                    ProfileCustomFormField(
+                      label: 'City',
+                      controller: cityController,
+                    ),
                     const SizedBox(height: 10),
-                    const ProfileCustomFormField(label: 'Postcode'),
+                    ProfileCustomFormField(
+                      label: 'Postcode',
+                      controller: postcodeController,
+                    ),
                     const SizedBox(height: 10),
-                    const ProfileCustomFormField(label: 'Author Card No'),
+                    ProfileCustomFormField(
+                      label: 'Author Card No',
+                      controller: authCardController,
+                    ),
                     const SizedBox(height: 10),
-                    const ProfileCustomFormField(label: 'Pass Card No'),
+                    ProfileCustomFormField(
+                      label: 'Pass Card No',
+                      controller: passController,
+                    ),
                     const SizedBox(height: 15),
                     const Text(
                       'Bank Details',
                       style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700),
                     ),
                     const SizedBox(height: 10),
-                    const ProfileCustomFormField(label: 'Bank Name'),
-                    const SizedBox(height: 10),
-                    const ProfileCustomFormField(label: 'Account Number'),
-                    const SizedBox(height: 10),
-                    const ProfileCustomFormField(label: 'Account Holder Name'),
-                    const SizedBox(height: 10),
-                    const ProfileCustomFormField(label: 'Code'),
-                    const SizedBox(height: 10),
-                    Row(
-                      children: [
-                        Checkbox(
-                          value: true,
-                          onChanged: (v) {},
-                          activeColor: kColorPrimary,
-                        ),
-                        const Text(
-                          'Organic Form',
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                        )
-                      ],
+                    ProfileCustomFormField(
+                      label: 'Bank Name',
+                      controller: bankNameController,
                     ),
                     const SizedBox(height: 10),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Add',
-                        style: kStyleTextW500CW.copyWith(fontSize: 18),
-                      ),
+                    ProfileCustomFormField(
+                      label: 'Account Number',
+                      controller: accController,
                     ),
+                    const SizedBox(height: 10),
+                    ProfileCustomFormField(
+                      label: 'Account Holder Name',
+                      controller: holderController,
+                    ),
+                    const SizedBox(height: 10),
+                    ProfileCustomFormField(
+                      label: 'Code',
+                      controller: codeController,
+                    ),
+                    const SizedBox(height: 10),
+                    isLoading
+                        ? const Center(child: CircularProgressIndicator())
+                        : ElevatedButton(
+                            onPressed: () async {
+                              setState(() {
+                                isLoading = true;
+                              });
+                              final getDoc = FirebaseFirestore.instance.collection('add_profile').doc();
+                              print(nameController.text);
+                              Map<String, dynamic> profile = {
+                                "id": getDoc.id,
+                                "name": nameController.text,
+                                "state": stateController.text,
+                                "city": cityController.text,
+                                "postcode": postcodeController.text,
+                                "authorCard": authCardController.text,
+                                "passCard": passController.text,
+                                "bankName": bankNameController.text,
+                                "accNumber": accController.text,
+                                "holderName": holderController.text,
+                                "code": codeController.text,
+                              };
+                              await getDoc.set(profile);
+                              if (mounted) {
+                                Navigator.pop(context);
+                              }
+                              setState(() {
+                                isLoading = false;
+                              });
+                            },
+                            child: Text(
+                              'Add',
+                              style: kStyleTextW500CW.copyWith(fontSize: 18),
+                            ),
+                          ),
                     const SizedBox(height: 10),
                   ],
                 ),
               ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ProfileCustomFormField extends StatelessWidget {
-  final String label;
-
-  const ProfileCustomFormField({
-    required this.label,
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      decoration: InputDecoration(
-        labelText: label,
-        contentPadding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 10),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5.0),
-          borderSide: const BorderSide(
-            color: Colors.black87, // Border color
-            width: 1.0, // Border width
           ),
         ),
       ),

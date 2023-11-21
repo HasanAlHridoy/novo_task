@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:novo/pages/khata_book_screen/select_crop_screen.dart';
@@ -12,7 +13,26 @@ class AddExpenseScreen extends StatefulWidget {
 }
 
 class _AddExpenseScreenState extends State<AddExpenseScreen> {
-  DateTime dt = DateTime.now();
+  DateTime dateTime = DateTime.now();
+  TextEditingController titleController = TextEditingController();
+  TextEditingController descController = TextEditingController();
+  TextEditingController amountController = TextEditingController();
+  Map<String, dynamic> result = {};
+  bool isLoading = false;
+
+//Pick Date
+  pickDate() {
+    showDatePicker(
+      context: context,
+      initialDate: dateTime,
+      firstDate: DateTime(DateTime.now().year - 100),
+      lastDate: DateTime(DateTime.now().year + 10),
+    ).then((value) {
+      setState(() {
+        dateTime = value!;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,8 +88,8 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                       style: kStyleTextW500CGR.copyWith(color: kColorGrey.shade600, fontSize: 18),
                     ),
                     TextButton(
-                      onPressed: () {
-                        Navigator.push(
+                      onPressed: () async {
+                        result = await Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => const SelectCropScreen()),
                         );
@@ -81,6 +101,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                     ),
                     const SizedBox(height: 15),
                     TextFormField(
+                      controller: titleController,
                       decoration: InputDecoration(
                         labelText: 'Title',
                         contentPadding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 10),
@@ -95,6 +116,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                     ),
                     const SizedBox(height: 15),
                     TextFormField(
+                      controller: descController,
                       maxLines: 3,
                       decoration: InputDecoration(
                         labelText: 'Description',
@@ -110,6 +132,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                     ),
                     const SizedBox(height: 15),
                     TextFormField(
+                      controller: amountController,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         labelText: 'Amount',
@@ -129,20 +152,44 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                       style: kStyleTextW500CGR.copyWith(color: kColorGrey.shade600, fontSize: 18),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        pickDate();
+                      },
                       child: Text(
-                        dt.toString().split(' ')[0].toString(),
+                        dateTime.toString().split(' ')[0].toString(),
                         style: kStyleTextW700CP.copyWith(fontSize: 16),
                       ),
                     ),
                     const SizedBox(height: 15),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Submit',
-                        style: kStyleTextW500CW.copyWith(fontSize: 20),
-                      ),
-                    )
+                    isLoading
+                        ? const Center(child: CircularProgressIndicator())
+                        : ElevatedButton(
+                            onPressed: () async {
+                              setState(() {
+                                isLoading = true;
+                              });
+                              final getDoc = FirebaseFirestore.instance.collection('khata_book').doc();
+                              Map<String, dynamic> cropAdd = {
+                                'cropName': result['name'],
+                                'cropImg': result['imgUrl'],
+                                'title': titleController.text,
+                                'description': descController.text,
+                                'amount': int.parse(amountController.text),
+                                'date': dateTime
+                              };
+                              await getDoc.set(cropAdd);
+                              if (mounted) {
+                                Navigator.pop(context);
+                              }
+                              setState(() {
+                                isLoading = false;
+                              });
+                            },
+                            child: Text(
+                              'Submit',
+                              style: kStyleTextW500CW.copyWith(fontSize: 20),
+                            ),
+                          )
                   ],
                 ),
               )

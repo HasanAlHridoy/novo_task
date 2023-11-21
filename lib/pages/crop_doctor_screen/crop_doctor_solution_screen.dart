@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import '../../themes.dart';
 
 class CropDoctorSolutionScreen extends StatefulWidget {
-  const CropDoctorSolutionScreen({Key? key}) : super(key: key);
+  final String imgUrl;
+  final String title;
+  final String desc;
+
+  const CropDoctorSolutionScreen({Key? key, required this.imgUrl, required this.title, required this.desc}) : super(key: key);
 
   @override
   State<CropDoctorSolutionScreen> createState() => _CropDoctorSolutionScreenState();
@@ -30,13 +34,7 @@ class _CropDoctorSolutionScreenState extends State<CropDoctorSolutionScreen> {
                       padding: const EdgeInsets.all(14.0),
                       child: Row(
                         children: [
-                          const Expanded(
-                            flex: 3,
-                            child: Icon(
-                              Icons.image,
-                              size: 75,
-                            ),
-                          ),
+                          Expanded(flex: 3, child: Image.network(widget.imgUrl)),
                           const SizedBox(width: 10),
                           Expanded(
                             flex: 7,
@@ -44,11 +42,11 @@ class _CropDoctorSolutionScreenState extends State<CropDoctorSolutionScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Sugar Cane',
+                                  widget.title,
                                   style: kStyleTextW500CP.copyWith(fontSize: 18),
                                 ),
                                 Text(
-                                  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+                                  widget.desc,
                                   style: kStyleTextW500CGR.copyWith(fontSize: 16),
                                 ),
                               ],
@@ -59,8 +57,8 @@ class _CropDoctorSolutionScreenState extends State<CropDoctorSolutionScreen> {
                     ),
                   ),
                   const Icon(
-                    Icons.lightbulb_circle,
-                    color: kColorYellow,
+                    Icons.lightbulb_sharp,
+                    color: kColorGreen,
                     size: 50,
                   ),
                 ],

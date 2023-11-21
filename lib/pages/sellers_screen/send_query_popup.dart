@@ -20,7 +20,7 @@ class _SendQueryPopUpState extends State<SendQueryPopUp> {
         ),
       ),
       content: SizedBox(
-        height: 300,
+        height: MediaQuery.of(context).size.height / 2.2,
         width: MediaQuery.of(context).size.width,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -29,13 +29,12 @@ class _SendQueryPopUpState extends State<SendQueryPopUp> {
               'Thank You..!!',
               style: kStyleTextW500CGR.copyWith(color: Colors.black87, fontSize: 18),
             ),
-            const Icon(
-              Icons.supervisor_account,
-              size: 100,
-            ),
+            const SizedBox(height: 10),
+            Image.asset('assets/images/sell/images.png'),
             const SizedBox(height: 10),
             Text(
-              'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry',
+              'Your query is submitted successfully. We will contact with you soon',
+              textAlign: TextAlign.center,
               style: kStyleTextW500CGR.copyWith(color: Colors.black87, fontSize: 18),
             ),
             const Spacer(),
