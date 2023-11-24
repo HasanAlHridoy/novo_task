@@ -27,7 +27,7 @@ class CustomButton extends StatelessWidget {
       highlightColor: Colors.transparent,
       onTap: onTap,
       child: SizedBox(
-        height: MediaQuery.of(context).size.height / 3.6,
+        height: MediaQuery.of(context).size.height / 3.2,
         child: Card(
           surfaceTintColor: kColorWhite,
           elevation: 5,

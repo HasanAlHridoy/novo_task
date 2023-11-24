@@ -28,7 +28,7 @@ class _ContactScreenPopUpState extends State<ContactScreenPopUp> {
             ),
           ),
           content: SizedBox(
-            height: MediaQuery.of(context).size.height / 1.4,
+            height: MediaQuery.of(context).size.height / 1.5,
             width: MediaQuery.of(context).size.width,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -66,59 +66,73 @@ class _ContactScreenPopUpState extends State<ContactScreenPopUp> {
                   style: kStyleTextW500CGR.copyWith(color: Colors.black87, fontSize: 18),
                 ),
                 const SizedBox(height: 15),
-                const Row(
-                  children: [
-                    Expanded(
-                      child: Card(
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: CommonWidgets(
-                            imgUrl: 'assets/images/sms.png',
-                            isNetwork: false,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 8,
+                  child: const Row(
+                    children: [
+                      Expanded(child: SizedBox.shrink()),
+                      Expanded(
+                        flex: 4,
+                        child: Card(
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: CommonWidgets(
+                              imgUrl: 'assets/images/sms.png',
+                              isNetwork: false,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Card(
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: CommonWidgets(
-                            imgUrl: 'assets/images/call.png',
-                            isNetwork: false,
+                      SizedBox(width: 10),
+                      Expanded(
+                        flex: 4,
+                        child: Card(
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: CommonWidgets(
+                              imgUrl: 'assets/images/call.png',
+                              isNetwork: false,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                      Expanded(child: SizedBox.shrink()),
+                    ],
+                  ),
                 ),
-                const Row(
-                  children: [
-                    Expanded(
-                      child: Card(
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: CommonWidgets(
-                            imgUrl: 'assets/images/inbox.png',
-                            isNetwork: false,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height / 8,
+                  child: const Row(
+                    children: [
+                      Expanded(child: SizedBox.shrink()),
+                      Expanded(
+                        flex: 4,
+                        child: Card(
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: CommonWidgets(
+                              imgUrl: 'assets/images/inbox.png',
+                              isNetwork: false,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 10),
-                    Expanded(
-                      child: Card(
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: CommonWidgets(
-                            imgUrl: 'assets/images/wapp.png',
-                            isNetwork: false,
+                      SizedBox(width: 10),
+                      Expanded(
+                        flex: 4,
+                        child: Card(
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: CommonWidgets(
+                              imgUrl: 'assets/images/wapp.png',
+                              isNetwork: false,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                      Expanded(child: SizedBox.shrink()),
+                    ],
+                  ),
                 ),
               ],
             ),

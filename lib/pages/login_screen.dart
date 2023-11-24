@@ -12,6 +12,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  String email = 'agro@gmail.com';
+  String password = '1234';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
                         children: [
                           Text(
                             'HarvestHub Agro',
-                            style: kStyleTextW700CP.copyWith(fontSize: 48),
+                            style: kStyleTextW700CP.copyWith(fontSize: 42),
                           ),
                           const SizedBox(height: 12),
                           RichText(
@@ -73,10 +78,11 @@ class _LoginPageState extends State<LoginPage> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: TextField(
+                  controller: emailController,
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
                       border: InputBorder.none, // Hide the border
-                      hintText: 'Mobile',
+                      hintText: 'Email',
                       hintStyle: TextStyle(color: Colors.grey.shade500)),
                 ),
               ),
@@ -98,12 +104,13 @@ class _LoginPageState extends State<LoginPage> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: TextField(
+                  controller: passwordController,
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
                     border: InputBorder.none, // Hide the border
-                    hintText: 'OTP',
+                    hintText: 'Password',
                     hintStyle: TextStyle(
-                      color: Colors.grey.shade300,
+                      color: Colors.grey.shade500,
                     ),
                   ),
                 ),
@@ -112,15 +119,23 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 15),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  CustomPageRoute(
-                    child: const SelectLanguagePage(),
-                    direction: AxisDirection.left,
-                  ),
-                );
+                if (emailController.text == 'agro@gmail.com' && passwordController.text == '1234') {
+                  Navigator.of(context).push(
+                    CustomPageRoute(
+                      child: const SelectLanguagePage(),
+                      direction: AxisDirection.left,
+                    ),
+                  );
+                } else {
+                  const snackBar = SnackBar(
+                    content: Text('wrong email or password'),
+                    backgroundColor: Colors.red,
+                  );
+                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                }
               },
               child: Text(
-                'Send OTP',
+                'Log in',
                 style: kStyleTextW500CW.copyWith(fontSize: 20),
               ),
             )

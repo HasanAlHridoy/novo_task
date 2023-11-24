@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                             initialPage: 0,
                             scrollDirection: Axis.horizontal,
                             autoPlay: true,
-                            height: sh / 3.6,
+                            height: sh / 4.2,
                           ),
                           items: imgList
                               .map(

@@ -60,6 +60,7 @@ class _SelectLanguagePageState extends State<SelectLanguagePage> {
                       child: Card(
                         elevation: 20,
                         surfaceTintColor: Colors.white,
+                        color: Colors.white,
                         child: Padding(
                           padding: const EdgeInsets.all(20.0),
                           child: Column(
@@ -77,7 +78,10 @@ class _SelectLanguagePageState extends State<SelectLanguagePage> {
                               const SizedBox(height: 12),
                               const Text(
                                 'বাংলা',
-                                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ],
                           ),

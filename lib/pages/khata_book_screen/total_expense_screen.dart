@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:novo/database/hive_boxes.dart';
 import 'package:novo/pages/khata_book_screen/add_expense_screen.dart';
 
 import '../../controllers/common_functions.dart';
@@ -21,6 +23,16 @@ class _TotalExpenseScreenState extends State<TotalExpenseScreen> {
     }
 
     return total;
+  }
+
+  getData() {
+    final expense = Boxes.totalExpense;
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
   }
 
   @override
@@ -97,13 +109,14 @@ class _TotalExpenseScreenState extends State<TotalExpenseScreen> {
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
                           final data = snapshot.data;
-                          totalAmount = calculateTotalAmount(data!);
+                          final expense = Boxes.totalExpense;
+                          expense.put('data', calculateTotalAmount(data!));
+                          totalAmount = expense.get('data');
                           print(totalAmount);
                           return ListView(
                             children: data
                                 .map(
-                                  (e) =>
-                                  Column(
+                                  (e) => Column(
                                     children: [
                                       ListTile(
                                         leading: CircleAvatar(
@@ -126,7 +139,7 @@ class _TotalExpenseScreenState extends State<TotalExpenseScreen> {
                                       const Divider(height: 0),
                                     ],
                                   ),
-                            )
+                                )
                                 .toList(),
                           );
                         } else {
